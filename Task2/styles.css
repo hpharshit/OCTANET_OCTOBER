@@ -53,3 +53,12 @@ li {
 .low-priority {
   color: green;
 }
+
+.delete-button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-left: 10px;
+}

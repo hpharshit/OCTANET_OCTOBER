@@ -6,6 +6,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const addTaskButton = document.getElementById("addTask");
   const taskList = document.getElementById("tasks");
 
+  function createDeleteButton(taskItem) {
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-button");
+
+    deleteButton.addEventListener("click", function () {
+      taskList.removeChild(taskItem);
+    });
+
+    return deleteButton;
+  }
+
   addTaskButton.addEventListener("click", function () {
     const taskName = taskNameInput.value;
     const deadline = deadlineInput.value;
@@ -25,9 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
       taskItem.classList.add("low-priority");
     }
 
-    taskList.appendChild(taskItem);
+    const deleteButton = createDeleteButton(taskItem);
+    taskItem.appendChild(deleteButton);
 
-    // Clear input fields
+    taskList.appendChild(taskItem);
     taskNameInput.value = "";
     deadlineInput.value = "";
     priorityInput.value = "high";
